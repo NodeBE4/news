@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://be4news.pythonanywhere.com/reader/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BE4新闻站">
+    <meta property="og:site_name" content="BE4新闻站">
+    <meta name="generator" content="Python+Django">
+    <meta name="theme-color" content="#306998">
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="emoji" content="🐍">
+    <link rel="stylesheet" type="text/css" href="./BE4新闻站_files/bootstrap.min.7ee2e2bd44c7.css">
+    <script src="./BE4新闻站_files/jquery.min.220afd743d9e.js"></script>
+    <script src="./BE4新闻站_files/popper.min.84415b7368fd.js"></script>
+    <script src="./BE4新闻站_files/bootstrap.min.61f338f870fc.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/united/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="./BE4新闻站_files/news.b53f94528c8a.css">
+    <link rel="icon" type="image/png" sizes="144x144" href="https://i.imgur.com/T5BFGa3.png">
+    <!--<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />-->
+    <!--<meta name="google-site-verification" content="WDbUHr8ccfJXaHWxNrjsVYPOMC8ooxhgHil3BLKkslA" />
+    <meta name="msvalidate.01" content="9F28DFABF82B307C80AA587B7FC11195" />-->
+    <!-- Global site tag (gtag.js) - Google Analytics
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-437457-25"></script> -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-437457-25');
+
+    </script>
+
+    <title>BE4新闻站-离线阅读器</title>
+</head>
+
+
+<body>
+  <div class="bg-light" id="sitenav">
+    <div class="container">
+      <nav class="nav navbar-expand-md  navbar-light bg-light">
+        <a href="https://be4news.pythonanywhere.com/" class="navbar-brand">BE4新闻站</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-main">
+          <ul class="navbar-nav mr-auto">
+
+            <li class=" nav-item">
+                <a href="https://be4news.pythonanywhere.com/newest" class="nav-link">最新</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://be4news.pythonanywhere.com/comments" class="nav-link">评论</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://be4news.pythonanywhere.com/ask" class="nav-link">问答</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://be4news.pythonanywhere.com/show" class="nav-link">通告</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://be4news.pythonanywhere.com/submit" class="nav-link">提交</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class=" nav-item">
+                <a href="https://be4news.pythonanywhere.com/archivenow/" class="nav-link">时光机</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://github.com/duty-machine/duty-machine" class="nav-link">duty-machine</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://be4.herokuapp.com/category/13/" class="nav-link">BE4论坛</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://chinatimeline.github.io/" class="nav-link">时代透镜</a>
+            </li>
+
+            <li class=" nav-item">
+                <a href="https://nodebe4.github.io/news" class="nav-link">Github</a>
+            </li>
+
+          </ul>
+        </div>
+    </nav>
+  </div>
+</div>
+  <div class="container">
+
+
+<link rel="stylesheet" type="text/css" href="./BE4新闻站_files/rssreader.cb2693f5e3a7.css">
+
+<div class="row">
+  <img src="./BE4新闻站_files/ajax-loader.c5d6cc994432.gif" class="img1 img-fluid" id="loadergif" style="display:none;">
+    <div class="col-12 col-md-3 " id="left">
+      <div id="nav-tips"><p class="text-info" style="font-size:12px;">提示: 可用左(右)方向键看前(后)一条</p></div>
+      <div class=" sticky-top ">
+        <ul class="nav nav-tabs" id="nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="https://be4news.pythonanywhere.com/reader/#sourcelist">订阅</a>
+          </li>
+          <li class="nav-item">
+
+            <a class="nav-link" data-toggle="" href="https://be4news.pythonanywhere.com/reader/feeds/">管理</a>
+          </li>
+        </ul>
+      <div class=" bd-docs-nav" id="sourcelist" style="overflow-y: auto; height: 745.125px;"><div class="active bd-toc-item" id="1">
+            <span class="cell" onclick="getMyRSS(&#39;1&#39;,&#39;https://rsshub-node.herokuapp.com/zaobao/realtime/china&#39;)" id="rss-1" style="color: gray;">联合早报</span>
+            <span class="badge badge-primary badge-pill" id="cnt-1">24</span>
+            <span><button id="btn-1" onclick="toggleSide(&#39;btn-1&#39;,&#39;sub-1&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ + ]</button></span>
+            <p id="sub-1" style="display: none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="2">
+            <span class="cell" onclick="getMyRSS(&#39;2&#39;,&#39;https://rsshub-node.herokuapp.com/bbc/chinese&#39;)" id="rss-2">BBC News 中文</span>
+            <span class="badge badge-primary badge-pill" id="cnt-2">?</span>
+            <span><button id="btn-2" onclick="toggleSide(&#39;btn-2&#39;,&#39;sub-2&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-2" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="3">
+            <span class="cell" onclick="getMyRSS(&#39;3&#39;,&#39;http://www.rti.org.tw/rss/&#39;)" id="rss-3">Rti 中央廣播電臺</span>
+            <span class="badge badge-primary badge-pill" id="cnt-3">?</span>
+            <span><button id="btn-3" onclick="toggleSide(&#39;btn-3&#39;,&#39;sub-3&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-3" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="4">
+            <span class="cell" onclick="getMyRSS(&#39;4&#39;,&#39;https://feedx.net/rss/nytimes.xml&#39;)" id="rss-4">纽约时报(简)</span>
+            <span class="badge badge-primary badge-pill" id="cnt-4">?</span>
+            <span><button id="btn-4" onclick="toggleSide(&#39;btn-4&#39;,&#39;sub-4&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-4" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="5">
+            <span class="cell" onclick="getMyRSS(&#39;5&#39;,&#39;https://tw.sinoinsider.com/feed/&#39;)" id="rss-5">透視中國</span>
+            <span class="badge badge-primary badge-pill" id="cnt-5">?</span>
+            <span><button id="btn-5" onclick="toggleSide(&#39;btn-5&#39;,&#39;sub-5&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-5" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="6">
+            <span class="cell" onclick="getMyRSS(&#39;6&#39;,&#39;https://feedx.net/rss/joins.xml&#39;)" id="rss-6">韩国中央日报</span>
+            <span class="badge badge-primary badge-pill" id="cnt-6">?</span>
+            <span><button id="btn-6" onclick="toggleSide(&#39;btn-6&#39;,&#39;sub-6&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-6" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="7">
+            <span class="cell" onclick="getMyRSS(&#39;7&#39;,&#39;https://feedx.net/rss/cna.xml&#39;)" id="rss-7">中央社CNA</span>
+            <span class="badge badge-primary badge-pill" id="cnt-7">?</span>
+            <span><button id="btn-7" onclick="toggleSide(&#39;btn-7&#39;,&#39;sub-7&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-7" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="8">
+            <span class="cell" onclick="getMyRSS(&#39;8&#39;,&#39;https://feedx.net/rss/dw.xml&#39;)" id="rss-8">德国之声全文</span>
+            <span class="badge badge-primary badge-pill" id="cnt-8">?</span>
+            <span><button id="btn-8" onclick="toggleSide(&#39;btn-8&#39;,&#39;sub-8&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-8" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="9">
+            <span class="cell" onclick="getMyRSS(&#39;9&#39;,&#39;https://feedx.net/rss/rfi.xml&#39;)" id="rss-9">法廣RFI</span>
+            <span class="badge badge-primary badge-pill" id="cnt-9">?</span>
+            <span><button id="btn-9" onclick="toggleSide(&#39;btn-9&#39;,&#39;sub-9&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-9" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="10">
+            <span class="cell" onclick="getMyRSS(&#39;10&#39;,&#39;https://feedx.net/rss/reuters.xml&#39;)" id="rss-10">路透中文</span>
+            <span class="badge badge-primary badge-pill" id="cnt-10">?</span>
+            <span><button id="btn-10" onclick="toggleSide(&#39;btn-10&#39;,&#39;sub-10&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-10" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="11">
+            <span class="cell" onclick="getMyRSS(&#39;11&#39;,&#39;https://www.cmmedia.com.tw/rss/yahoo/article&#39;)" id="rss-11">信傳媒新聞</span>
+            <span class="badge badge-primary badge-pill" id="cnt-11">?</span>
+            <span><button id="btn-11" onclick="toggleSide(&#39;btn-11&#39;,&#39;sub-11&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-11" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="12">
+            <span class="cell" onclick="getMyRSS(&#39;12&#39;,&#39;https://zh.bitterwinter.org/feed/&#39;)" id="rss-12">寒冬</span>
+            <span class="badge badge-primary badge-pill" id="cnt-12">?</span>
+            <span><button id="btn-12" onclick="toggleSide(&#39;btn-12&#39;,&#39;sub-12&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-12" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="13">
+            <span class="cell" onclick="getMyRSS(&#39;13&#39;,&#39;https://www.epochtimes.com/gb/nsc413.xml&#39;)" id="rss-13">大纪元-大陆新闻</span>
+            <span class="badge badge-primary badge-pill" id="cnt-13">?</span>
+            <span><button id="btn-13" onclick="toggleSide(&#39;btn-13&#39;,&#39;sub-13&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-13" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="14">
+            <span class="cell" onclick="getMyRSS(&#39;14&#39;,&#39;https://chinadigitaltimes.net/chinese/feed&#39;)" id="rss-14">中国数字时代</span>
+            <span class="badge badge-primary badge-pill" id="cnt-14">?</span>
+            <span><button id="btn-14" onclick="toggleSide(&#39;btn-14&#39;,&#39;sub-14&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-14" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="15">
+            <span class="cell" onclick="getMyRSS(&#39;15&#39;,&#39;https://rsshub-node.herokuapp.com/yicai/brief&#39;)" id="rss-15">第一财经</span>
+            <span class="badge badge-primary badge-pill" id="cnt-15">?</span>
+            <span><button id="btn-15" onclick="toggleSide(&#39;btn-15&#39;,&#39;sub-15&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-15" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="16">
+            <span class="cell" onclick="getMyRSS(&#39;16&#39;,&#39;https://rsshub-node.herokuapp.com/thepaper/featured&#39;)" id="rss-16">澎湃新闻</span>
+            <span class="badge badge-primary badge-pill" id="cnt-16">?</span>
+            <span><button id="btn-16" onclick="toggleSide(&#39;btn-16&#39;,&#39;sub-16&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-16" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="17">
+            <span class="cell" onclick="getMyRSS(&#39;17&#39;,&#39;https://rsshub.app/caixin/article&#39;)" id="rss-17">财新网</span>
+            <span class="badge badge-primary badge-pill" id="cnt-17">?</span>
+            <span><button id="btn-17" onclick="toggleSide(&#39;btn-17&#39;,&#39;sub-17&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-17" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="18">
+            <span class="cell" onclick="getMyRSS(&#39;18&#39;,&#39;https://rsshub-node.herokuapp.com/xinwenlianbo/index&#39;)" id="rss-18">新闻联播文字版</span>
+            <span class="badge badge-primary badge-pill" id="cnt-18">?</span>
+            <span><button id="btn-18" onclick="toggleSide(&#39;btn-18&#39;,&#39;sub-18&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-18" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="19">
+            <span class="cell" onclick="getMyRSS(&#39;19&#39;,&#39;https://rsshub-node.herokuapp.com/caixin/weekly/current_affairs&#39;)" id="rss-19">财新周刊-时事</span>
+            <span class="badge badge-primary badge-pill" id="cnt-19">?</span>
+            <span><button id="btn-19" onclick="toggleSide(&#39;btn-19&#39;,&#39;sub-19&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-19" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="20">
+            <span class="cell" onclick="getMyRSS(&#39;20&#39;,&#39;https://rsshub-node.herokuapp.com/solidot/www&#39;)" id="rss-20">Solidot</span>
+            <span class="badge badge-primary badge-pill" id="cnt-20">?</span>
+            <span><button id="btn-20" onclick="toggleSide(&#39;btn-20&#39;,&#39;sub-20&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-20" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="21">
+            <span class="cell" onclick="getMyRSS(&#39;21&#39;,&#39;http://rss.slashdot.org/Slashdot/slashdotMain&#39;)" id="rss-21">Slashdot</span>
+            <span class="badge badge-primary badge-pill" id="cnt-21">?</span>
+            <span><button id="btn-21" onclick="toggleSide(&#39;btn-21&#39;,&#39;sub-21&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-21" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="22">
+            <span class="cell" onclick="getMyRSS(&#39;22&#39;,&#39;https://rsshub-node.herokuapp.com/zhishifenzi/news/ai&#39;)" id="rss-22">知識分子-AI</span>
+            <span class="badge badge-primary badge-pill" id="cnt-22">?</span>
+            <span><button id="btn-22" onclick="toggleSide(&#39;btn-22&#39;,&#39;sub-22&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-22" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="23">
+            <span class="cell" onclick="getMyRSS(&#39;23&#39;,&#39;https://feeds.feedburner.com/chinafile/All?format=xml&#39;)" id="rss-23">ChinaFile</span>
+            <span class="badge badge-primary badge-pill" id="cnt-23">?</span>
+            <span><button id="btn-23" onclick="toggleSide(&#39;btn-23&#39;,&#39;sub-23&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-23" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="24">
+            <span class="cell" onclick="getMyRSS(&#39;24&#39;,&#39;http://hx.cnd.org/feed/&#39;)" id="rss-24">CND刊物和论坛</span>
+            <span class="badge badge-primary badge-pill" id="cnt-24">?</span>
+            <span><button id="btn-24" onclick="toggleSide(&#39;btn-24&#39;,&#39;sub-24&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-24" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="25">
+            <span class="cell" onclick="getMyRSS(&#39;25&#39;,&#39;https://rsshub-node.herokuapp.com/matters/author/ngocncat&#39;)" id="rss-25">NGOCN Matters</span>
+            <span class="badge badge-primary badge-pill" id="cnt-25">?</span>
+            <span><button id="btn-25" onclick="toggleSide(&#39;btn-25&#39;,&#39;sub-25&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-25" style="display:none;"></p>
+          </div>
+
+
+
+          <div class="active bd-toc-item" id="26">
+            <span class="cell" onclick="getMyRSS(&#39;26&#39;,&#39;https://www.thestandnews.com/rss/&#39;)" id="rss-26">立场新闻</span>
+            <span class="badge badge-primary badge-pill" id="cnt-26">?</span>
+            <span><button id="btn-26" onclick="toggleSide(&#39;btn-26&#39;,&#39;sub-26&#39;)" style="font-size:0.9em; border:none; background:none; color:gray">[ - ]</button></span>
+            <p id="sub-26" style="display:none;"></p>
+          </div>
+
+
+
+
+
+          </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-9">
+      <div class="modal" id="myModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">分享这条新闻(离线版无法提交)</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form class="story-form" method="POST" action="https://be4news.pythonanywhere.com/submit" target="_blank"><input type="hidden" name="csrfmiddlewaretoken" value="ZtazHcTQc1vY2HSUBtTL6SFbaYFUhXPlf133CJKbAxkQMbyDoR4mzXAiwpYQtlCw">
+              <div class="modal-body">
+                  <div class="form-group">
+                    <table style="width:100%;">
+                    <tbody><tr><th><label for="id_title">Title:</label></th><td><input type="text" name="title" maxlength="255" id="id_title"></td></tr>
+<tr><th><label for="id_url">Url:</label></th><td><input type="url" name="url" maxlength="500" id="id_url"></td></tr>
+<tr><th><label for="id_text">Text:</label></th><td><textarea name="text" cols="40" rows="10" id="id_text"></textarea></td></tr>
+                    <tr><th></th><td class="small"><a>全文 </a><input type="checkbox" id="id_fulltext" name="fulltext" style="width:1em;" onclick="fulltext();"> <i>大部分新闻网站可将正文留空</i></td></tr>
+                    <tr><th><label for="id_tags">话题:</label></th><td><input type="text" name="tags" maxlength="255" id="id_tags" placeholder="可选，多个标签用逗号隔开">
+                      <p>例：
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;新冷战&#39;);">新冷战</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;武汉肺炎&#39;);">武汉肺炎</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;港版国安法&#39;);">港版国安法</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;中印边境冲突&#39;);">中印边境冲突</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;舆论战&#39;);">舆论战</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;台湾&#39;);">台湾</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;香港&#39;);">香港</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;美国政局&#39;);">美国政局</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;中美关系恶化&#39;);">中美关系恶化</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;二次爆发&#39;);">二次爆发</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;人权&#39;);">人权</a></span>
+
+                        <span class="badge badge-light cell"><a onclick="setLabel(&#39;美国&#39;);">美国</a></span>
+
+
+                        <span class="badge badge-warning cell"><a onclick="setLabel(&#39;西藏&#39;);">西藏</a></span>
+
+                        <span class="badge badge-warning cell"><a onclick="setLabel(&#39;海外战狼&#39;);">海外战狼</a></span>
+
+                        <span class="badge badge-warning cell"><a onclick="setLabel(&#39;战略&#39;);">战略</a></span>
+
+                        <span class="badge badge-warning cell"><a onclick="setLabel(&#39;东海局势&#39;);">东海局势</a></span>
+
+                        <span class="badge badge-warning cell"><a onclick="setLabel(&#39;苹果&#39;);">苹果</a></span>
+
+                        <span class="badge badge-warning cell"><a onclick="setLabel(&#39;中国&#39;);">中国</a></span>
+
+                      </p>
+                    </td></tr>
+                    <tr><th><label for="id_delay">延迟:</label></th><td><input type="number" name="delay" min="0" max="1440" id="id_delay" style="max-width:250px;" placeholder="可选，延迟0～1440分钟发布">
+                      <span type="button" class="btn btn-light" onclick="setRandomDelay(&#39;id_delay&#39;);">随机</span>
+                      <span type="button" class="btn btn-light" onclick="setZeroDelay(&#39;id_delay&#39;);">清零</span>
+                    </td></tr>
+                    </tbody></table>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="submit-news">添加</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="timelineModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">提交至中国时间线</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div id="timeline-events"></div>
+            <hr>
+            <div id="timeline-form"></div>
+            <div id="timeline-temp" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="infobar">
+        <table style="width:100%;">
+          <tbody><tr><td>
+      		<div id="chan_title">《联合早报》-中港台-即时</div>
+      		<div id="chan_link">https://www.zaobao.com/realtime/china</div>
+        </td><td style="width:12em;">
+          <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal">
+            N
+          </button>
+
+          <span type="button" class="btn btn-outline-primary" onclick="submitToChinaTimeline();" data-toggle="modal" data-target="#timelineModal">
+            提交至时代透镜
+          </span>
+
+          </td></tr>
+        </tbody></table>
+      </div>
+    	<div class="rss" id="chan" style="overflow-y: auto; height: 755.125px;">
+    		<div id="chan_content"></div>
+    		<a id="chan_image_link" href="https://be4news.pythonanywhere.com/reader/"></a>
+        <div style="width:100%;" class="card card-body">
+    		    <div id="chan_items"></div>
+        </div>
+    		<div id="chan_pubDate"></div>
+    		<div id="chan_copyright"></div>
+    	</div>
+    </div>
+</div>
+
+
+<script language="javascript" src="./BE4新闻站_files/timelineajax.min.861d4b4251f7.js"></script>
+
+<script language="javascript" src="./BE4新闻站_files/rssajax.min.9e49a4efb7a5.js"></script>
+<script language="javascript" src="./BE4新闻站_files/rss-parser.min.ce303ac08bd0.js"></script>
+
+<script language="javascript">
+// Note: some RSS feeds can't be loaded in the browser due to CORS security.
+// To get around this, you can use a proxy.
+window.onload = getMyRSS('1','https://rsshub-node.herokuapp.com/zaobao/realtime/china');
+
+document.body.onkeyup = function(e){
+  if (e.keyCode == '39') { nextArticle(); } // left arrow key
+  if (e.keyCode == '37') { prevArticle(); } // right arrow key
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+   resize();
+});
+window.onresize = function() {
+    resize();
+};
+
+$(document).ready(function() {
+    $("#submit-news").click(function() {
+        $("#myModal").modal("hide");
+    });
+});
+
+$('#id_fulltext').click(function(){
+  fulltext();
+});
+</script>
+
+
+  </div>
+
+    <footer class="bg-light" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+
+
+
+          </div>
+          <div align="center" class="col-lg-12" style="font-size:12px;">
+
+            <p> <img src="./BE4新闻站_files/gKwqPUy.png" align="top" class="img-fluid"> BE4新闻站 专注时事分享与评论，
+            代码基于采取<a href="https://www.ruanyifeng.com/blog/2012/02/ranking_algorithm_hacker_news.html">Hacker News排序算法</a>的
+            <a href="https://github.com/sebst/pythonic-news">Pythonic-News</a>. <a id="utc_clock">UTC: 2020-07-08T18:45</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<script type="text/javascript" src="./BE4新闻站_files/news.69dd0098d169.js"></script>
+<script type="text/javascript" src="./BE4新闻站_files/showdown.min.41596d3910b8.js"></script>
+<script type="text/javascript" src="./BE4新闻站_files/turndown.min.a8a3a1d7082a.js"></script>
+<script type="text/javascript" src="./BE4新闻站_files/discussion.min.4bc25f7ed002.js"></script>
+
+
+</body></html>

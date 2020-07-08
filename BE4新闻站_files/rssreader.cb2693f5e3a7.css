@@ -1,0 +1,11 @@
+.sidebar-content {
+  //max-height: calc(100% - 30px);
+  //height: calc(100% - 30px);
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.sidebar-content.desktop {
+  overflow-y: hidden;
+}

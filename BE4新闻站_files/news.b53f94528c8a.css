@@ -1,0 +1,218 @@
+/*
+
+https://www.schemecolor.com/python-logo-colors.php
+Cyan-Blue Azure     #4B8BBE
+Lapis Lazuli        #306998
+Shandy              #FFE873
+Sunglow             #FFD43B
+Granite Gray        #646464
+
+
+*/
+/* https://encycolorpedia.com/646464 */
+
+/* Variables */
+/* // Font stacks
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia: Georgia, serif;
+
+// Fonts
+$base-font: Optima,'Lucida Sans',Calibri,Candara,Arial,source-han-serif-sc,'Source Han Serif SC','Source Han Serif CN','Source Han Serif TC','Source Han Serif TW','Source Han Serif','Songti SC','Microsoft YaHei',sans-serif;
+$code-font: 'Menlo', 'Courier New', 'Monaco', 'Spoqa Han Sans', monospace;
+ */
+
+
+/* General formatting */
+
+/*
+ul.horizontal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.horizontal-list li {
+    display: inline-block;
+} */
+
+
+/* a { color: inherit; } */
+.green { color:green; }
+
+.orange { color:orange; }
+
+.blue { color:blue; }
+
+.indigo {color:indigo;}
+
+.white { color:white; }
+
+.title > a {
+    text-decoration: none;
+}
+
+.title > a:visited {
+    color: #999;
+}
+
+/* td {border:1px solid red;} */
+
+/* Site layout */
+
+
+/* Item Layout */
+
+
+
+/* Forms */
+
+form.comment-form {
+    padding: 0px;
+}
+
+form.comment-form textarea {
+    width: 100%;
+    height: 10em;
+    resize: vertical;
+}
+
+form.comment-form button {
+    float: left;
+    margin-right: 10px;
+}
+
+form.comment-form ul {
+    float: left;
+}
+
+form.tag-form input[type=text]  {
+  width: 100%;
+  max-width: 250px;
+  padding: 2px 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form.story-form input {
+  width: 100%;
+  max-width: 500px;
+}
+
+form.story-form textarea {
+  width: 100%;
+  max-width: 500px;
+}
+
+.vote-form {
+    border: 0;
+    margin:0;
+    padding:0;
+}
+
+.vote-button {
+    background:transparent;
+    display:block;
+    padding:0;
+    padding-top:4px;
+    /* border: 1px solid red; */
+    border:0;
+}
+
+/* http://apps.eky.hk/css-triangle-generator/ */
+div.arrow-up {
+    position:relative;
+    top:-2px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0.3em 0.7em 0.3em;
+    border-color: transparent transparent #646464 transparent;
+}
+
+div.arrow-down {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.7em 0.3em 0 0.3em;
+    border-color: #646464 transparent transparent transparent;
+}
+
+
+
+.formatting-help {
+    border: 2px solid #ddd;
+    padding: 0.25em;
+    margin: 0 20px;
+    box-sizing: border-box;
+}
+
+.formatting-help.closed {
+    display: none;
+}
+
+.formatting-help h3 {
+    display: block;
+    margin: 0;
+    padding: 0.5em 0 0.25em 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.formatting-help h3:first-child {
+    padding-top: 0;
+}
+
+.table-cell{
+cursor:pointer;
+}
+
+.div-cell{
+cursor:pointer;
+}
+
+.cell{
+cursor:pointer;
+}
+
+/* mobile device */
+@media only screen
+and (min-width : 300px)
+and (max-width : 750px) {
+  .title, .comment { font-size: inherit;  }
+
+    .vote-form {
+        padding:0.2em;
+        transform: scale(1.8);
+    }
+
+    .smaller    { font-size:10pt;}
+
+
+    form.comment-form textarea {
+        width: 100%;
+    }
+
+    div.arrow-up {
+        position:relative;
+        top:-2px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0.2em 0.6em 0.2em;
+        border-color: transparent transparent #646464 transparent;
+    }
+
+    div.arrow-down {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0.6em 0.2em 0 0.2em;
+        border-color: #646464 transparent transparent transparent;
+    }
+
+
+}
