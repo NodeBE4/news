@@ -1,9 +1,8 @@
-# news
-BE4新闻站RSS阅读器-站外版
+# BE4新闻站RSS阅读器-站外版
 
-访问地址
+访问地址 https://nodebe4.github.io/news/
 
-https://nodebe4.github.io/news/
+分享短链接 https://git.io/JJCxH
 
 也可以下载到自己电脑，用浏览器打开index.html文件
 
@@ -21,7 +20,7 @@ https://nodebe4.github.io/news/
 7. pythonicnews https://github.com/sebst/pythonic-news
 
 ## 链接
-BE4新闻站 https://be4news.pythonanywhere.com/
-BE4论坛 https://be4.herokuapp.com/
-时代透镜 https://github.com/chinatimeline
-duty-machine https://github.com/duty-machine
+- BE4新闻站 https://be4news.pythonanywhere.com/
+- BE4论坛 https://be4.herokuapp.com/
+- 时代透镜 https://github.com/chinatimeline
+- duty-machine https://github.com/duty-machine
